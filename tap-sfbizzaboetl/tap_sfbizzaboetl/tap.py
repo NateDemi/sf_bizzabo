@@ -1,7 +1,7 @@
 """SfBizzaboETL tap class."""
 
 from typing import List
-
+import os
 from singer_sdk import Tap, Stream
 from singer_sdk import typing as th  # JSON schema typing helpers
 # TODO: Import your custom stream types here:
@@ -23,7 +23,7 @@ class TapSfBizzaboETL(Tap):
             "auth_token",
             th.StringType,
             required=True,
-            default="81edf834-f0dc-4754-89a9-99d44ab1b9fa",
+            default=os.environ['api_key'],
             description="The token to authenticate against the API service"
         ),
 
