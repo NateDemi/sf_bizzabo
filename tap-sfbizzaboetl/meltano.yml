@@ -1,0 +1,25 @@
+version: 1
+send_anonymous_usage_stats: true
+project_id: tap-sfbizzaboetl
+plugins:
+  extractors:
+  - name: tap-sfbizzaboetl
+    namespace: tap_sfbizzaboetl
+    pip_url: -e .
+    capabilities:
+    - state
+    - catalog
+    - discover
+    settings:
+    - name: username
+    - name: password
+      kind: password
+    - name: start_date
+      value: '2010-01-01T00:00:00Z'
+    config:
+      start_date: '2010-01-01T00:00:00Z'
+      api_key: 81edf834-f0dc-4754-89a9-99d44ab1b9fa
+  loaders:
+  - name: target-jsonl
+    variant: andyh1203
+    pip_url: target-jsonl
